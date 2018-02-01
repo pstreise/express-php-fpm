@@ -27,6 +27,7 @@ const options = {
   // root of your php files
   documentRoot: __dirname + '/php_files',
   
+  entryFile: '/main.php', //optional, if you use talking urls + mod_rewrite(or something else)
   // extra env variables
   env: {},
   

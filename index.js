@@ -24,9 +24,12 @@ class Handler {
   }
   
   handle(req, res, next) {
-    let file = this.withoutQueryString(req.url)
-    if(file.endsWith('/')) { file += 'index.php' }
-    if(!file.endsWith('.php')) { next(); return }
+      if('entryFile' in this.opt) {
+          file = this.opt.entryFile;
+      } else {
+          if(file.endsWith('/')) { file += 'index.php' }
+          if(!file.endsWith('.php')) { next(); return }
+      }
     
     new Responder(this, file, req, res, next)
   }
