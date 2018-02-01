@@ -24,6 +24,7 @@ class Handler {
   }
   
   handle(req, res, next) {
+      let file = this.withoutQueryString(req.url)
       if('entryFile' in this.opt) {
           file = this.opt.entryFile;
       } else {
